@@ -1,0 +1,182 @@
+{
+  "topBar": {
+    "sustainable": "100% Sustainably Sourced Wood",
+    "freeShipping": "Free shipping over $75",
+    "phone": "(02) 01001202005"
+  },
+  "nav": {
+    "home": "Home",
+    "shop": "Shop",
+    "featured": "Featured",
+    "careGuide": "Care Guide",
+    "about": "About",
+    "contact": "Contact",
+    "admin": "Admin"
+  },
+  "megaMenu": {
+    "byCategory": "By Category",
+    "byWoodType": "By Wood Type",
+    "cuttingBoards": "Cutting Boards",
+    "spoonsSpatulas": "Spoons & Spatulas",
+    "servingWare": "Serving Ware",
+    "knivesUtensils": "Knives & Utensils",
+    "teak": "Teak",
+    "oak": "Oak",
+    "walnut": "Walnut",
+    "bamboo": "Bamboo",
+    "maple": "Maple",
+    "seasonPick": "Season's Pick",
+    "walnutCollection": "Walnut Collection",
+    "explore": "Explore →",
+    "viewAll": "View All Products"
+  },
+  "search": {
+    "placeholder": "Search cutting boards, spoons, walnut...",
+    "mobilePlaceholder": "Search products...",
+    "button": "Search"
+  },
+  "account": {
+    "welcome": "Welcome",
+    "myAccount": "My Account",
+    "signIn": "Sign In",
+    "createAccount": "Create Account",
+    "profile": "Profile",
+    "orders": "Orders",
+    "dashboard": "Dashboard",
+    "signOut": "Sign Out"
+  },
+  "mobile": {
+    "menu": "Menu",
+    "allProducts": "All Products",
+    "categories": "Categories",
+    "woodTypes": "Wood Types",
+    "account": "Account",
+    "myProfile": "My Profile",
+    "myOrders": "My Orders",
+    "adminDashboard": "Admin Dashboard",
+    "sale": "🌿 Sale: Up to 30% Off"
+  },
+  "lang": {
+    "switch": "عربي",
+    "current": "English"
+  },
+  "footer": {
+    "brandTagline": "Crafting sustainable, handcrafted wooden utensils that bring natural beauty to your kitchen.",
+    "shop": "Shop",
+    "allProducts": "All Products",
+    "featured": "Featured",
+    "onSale": "On Sale",
+    "newArrivals": "New Arrivals",
+    "bestSellers": "Best Sellers",
+    "information": "Information",
+    "aboutUs": "About Us",
+    "careGuide": "Care Guide",
+    "sustainability": "Sustainability",
+    "faq": "FAQ",
+    "contactUs": "Contact Us",
+    "contactInfo": "Contact Info",
+    "address": "13 Monofia, Egypt",
+    "hours": "Mon-Fri: 9am-6pm Cairo Time",
+    "newsletterTitle": "Join Our Newsletter",
+    "newsletterDesc": "Get updates on new products and exclusive offers.",
+    "emailPlaceholder": "Your email",
+    "siteName": "SmartHome Wooden Utensils",
+    "allRightsReserved": "All rights reserved.",
+    "ariaFacebook": "Facebook",
+    "ariaInstagram": "Instagram",
+    "ariaPinterest": "Pinterest",
+    "ariaYouTube": "YouTube",
+    "titleVisa": "Visa",
+    "titleMasterCard": "MasterCard",
+    "titlePayPal": "PayPal",
+    "titleGooglePay": "Google Pay",
+    "titleApplePay": "Apple Pay"
+  },
+
+    "hero": {
+    "title1": "Handcrafted Wooden Utensils",
+    "subtitle1": "Bring warmth and nature to your kitchen with our sustainably sourced wooden tools",
+    "title2": "Artisan Quality Since 1985",
+    "subtitle2": "Each piece is uniquely handcrafted by master artisans",
+    "cta": "Shop Now"
+  },
+
+  "features": {
+    "sustainable": {
+      "title": "Sustainable Wood",
+      "desc": "Ethically sourced from certified forests"
+    },
+    "handcrafted": {
+      "title": "Handcrafted",
+      "desc": "Each piece made with love and care"
+    },
+    "shipping": {
+      "title": "Free Shipping",
+      "desc": "On orders over $75 worldwide"
+    },
+    "warranty": {
+      "title": "Lifetime Warranty",
+      "desc": "Quality guaranteed for life"
+    }
+  },
+
+  "categories": {
+    "title": "Shop by Category",
+    "subtitle": "Find the perfect wooden utensil for your kitchen",
+    "cuttingBoards": "Cutting Boards",
+    "spoonsSpatulas": "Spoons & Spatulas",
+    "servingWare": "Serving Ware",
+    "knivesUtensils": "Knives & Utensils"
+  },
+
+  "featured": {
+    "title": "Featured Products",
+    "subtitle": "Our most loved wooden utensils",
+    "viewAll": "View All Products"
+  },
+
+  "woodTypes": {
+    "title": "Explore by Wood Type",
+    "subtitle": "Discover the unique character of each wood",
+    "teak": "Teak Wood",
+    "walnut": "Walnut Wood",
+    "oak": "Oak Wood",
+    "bamboo": "Bamboo",
+    "description": {
+      "teak": "Durable & water-resistant",
+      "walnut": "Rich dark color",
+      "oak": "Strong & sturdy",
+      "bamboo": "Eco-friendly & sustainable"
+    }
+  },
+
+  "newsletter": {
+    "title": "Join Our Newsletter",
+    "desc": "Get 10% off your first order and receive exclusive offers",
+    "placeholder": "Enter your email",
+    "subscribe": "Subscribe"
+  },
+
+  "testimonials": {
+    "title": "What Our Customers Say",
+    "subtitle": "Loved by thousands of home cooks",
+    "review1": {
+      "text": "These wooden spoons are absolutely beautiful! The craftsmanship is exceptional. My kitchen feels complete now.",
+      "name": "Sarah M."
+    },
+    "review2": {
+      "text": "The cutting board is stunning. It has become the centerpiece of my kitchen. Worth every penny!",
+      "name": "David L."
+    },
+    "review3": {
+      "text": "Sustainable, beautiful, and functional. Everything I was looking for. Will definitely buy again.",
+      "name": "Emma R."
+    }
+  },
+
+  "product": {
+    "new": "NEW",
+    "quickView": "Quick View",
+    "addToCart": "Add to Cart"
+  }
+}

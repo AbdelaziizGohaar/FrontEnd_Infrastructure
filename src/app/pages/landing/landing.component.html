@@ -1,0 +1,144 @@
+<div class="landing-page">
+  <!-- Hero Section -->
+  <app-hero />
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <i class="bi bi-tree"></i>
+          </div>
+          <h3 class="feature-card__title">{{ 'features.sustainable.title' | translate }}</h3>
+          <p class="feature-card__desc">{{ 'features.sustainable.desc' | translate }}</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <i class="bi bi-hand-thumbs-up"></i>
+          </div>
+          <h3 class="feature-card__title">{{ 'features.handcrafted.title' | translate }}</h3>
+          <p class="feature-card__desc">{{ 'features.handcrafted.desc' | translate }}</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <i class="bi bi-truck"></i>
+          </div>
+          <h3 class="feature-card__title">{{ 'features.shipping.title' | translate }}</h3>
+          <p class="feature-card__desc">{{ 'features.shipping.desc' | translate }}</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <i class="bi bi-shield-check"></i>
+          </div>
+          <h3 class="feature-card__title">{{ 'features.warranty.title' | translate }}</h3>
+          <p class="feature-card__desc">{{ 'features.warranty.desc' | translate }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="categories-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">{{ 'categories.title' | translate }}</h2>
+        <p class="section-subtitle">{{ 'categories.subtitle' | translate }}</p>
+      </div>
+      <div class="categories-grid">
+        @for (category of categories; track category.id) {
+          <a [routerLink]="category.route" class="category-card">
+            <div class="category-card__icon">
+              <i [class]="category.icon"></i>
+            </div>
+            <h3 class="category-card__title">{{ category.name | translate }}</h3>
+          </a>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="products-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">{{ 'featured.title' | translate }}</h2>
+        <p class="section-subtitle">{{ 'featured.subtitle' | translate }}</p>
+      </div>
+      @if (isLoading()) {
+        <div class="loading-spinner">
+          <div class="spinner"></div>
+        </div>
+      } @else {
+        <div class="products-grid">
+          @for (product of featuredProducts(); track product.id) {
+            <app-product-card 
+              [product]="product" 
+              (addToCart)="onAddToCart($event)"
+              (quickView)="onQuickView($event)">
+            </app-product-card>
+          }
+        </div>
+      }
+      <div class="section-footer">
+        <a routerLink="/products" class="btn-outline">{{ 'featured.viewAll' | translate }}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wood Types Showcase -->
+  <section class="wood-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">{{ 'woodTypes.title' | translate }}</h2>
+        <p class="section-subtitle">{{ 'woodTypes.subtitle' | translate }}</p>
+      </div>
+      <div class="wood-grid">
+        @for (wood of woodTypes; track wood.id) {
+          <a [routerLink]="wood.route" class="wood-card" [style.--wood-color]="wood.color">
+            <div class="wood-card__color"></div>
+            <h3 class="wood-card__title">{{ wood.name | translate }}</h3>
+            <p class="wood-card__desc">{{ wood.description | translate }}</p>
+          </a>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-card">
+        <h2 class="newsletter-title">{{ 'newsletter.title' | translate }}</h2>
+        <p class="newsletter-desc">{{ 'newsletter.desc' | translate }}</p>
+        <div class="newsletter-form">
+          <input type="email" class="newsletter-input" [placeholder]="'newsletter.placeholder' | translate">
+          <button class="newsletter-btn">{{ 'newsletter.subscribe' | translate }}</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">{{ 'testimonials.title' | translate }}</h2>
+        <p class="section-subtitle">{{ 'testimonials.subtitle' | translate }}</p>
+      </div>
+      <div class="testimonials-grid">
+        @for (testimonial of testimonials; track testimonial.name) {
+          <div class="testimonial-card">
+            <div class="testimonial-card__stars">
+              @for (star of [1,2,3,4,5]; track star) {
+                <i class="bi bi-star-fill"></i>
+              }
+            </div>
+            <p class="testimonial-card__text">"{{ testimonial.text }}"</p>
+            <p class="testimonial-card__name">- {{ testimonial.name }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,50 @@
+<div class="product-card">
+  <div class="product-card__image">
+    <img [src]="product.image" [alt]="product.name">
+    
+    <!-- Badges -->
+    <div class="product-card__badges">
+      @if (product.isNew) {
+        <span class="badge badge--new">{{ 'product.new' | translate }}</span>
+      }
+      @if (getDiscountPercentage()) {
+        <span class="badge badge--sale">-{{ getDiscountPercentage() }}%</span>
+      }
+    </div>
+
+    <!-- Quick Actions -->
+    @if (showQuickView) {
+      <div class="product-card__actions">
+        <button class="action-btn action-btn--quick" (click)="onQuickView($event)" [attr.aria-label]="'product.quickView' | translate">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M22 12c-2.667 4.667-6 7-10 7s-7.333-2.333-10-7c2.667-4.667 6-7 10-7s7.333 2.333 10 7z"/>
+          </svg>
+        </button>
+        <button class="action-btn action-btn--cart" (click)="onAddToCart($event)" [attr.aria-label]="'product.addToCart' | translate">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+        </button>
+      </div>
+    }
+  </div>
+
+  <div class="product-card__info">
+    <div class="product-card__wood">
+      <span class="wood-dot" [class]="'wood-dot--' + product.woodType"></span>
+      <span>{{ product.woodType | uppercase }}</span>
+    </div>
+    <h3 class="product-card__title">
+      <a [routerLink]="['/products', product.slug]">{{ product.name }}</a>
+    </h3>
+    <div class="product-card__price">
+      <span class="price-current">${{ product.price }}</span>
+      @if (product.comparePrice) {
+        <span class="price-compare">${{ product.comparePrice }}</span>
+      }
+    </div>
+  </div>
+</div>

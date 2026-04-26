@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/modules/admin/admin-module.ts"],
+  "sourcesContent": ["import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n\n\n@NgModule({\n  declarations: [],\n  imports: [\n    CommonModule\n  ]\n})\nexport class AdminModule { }\n"],
+  "mappings": ";;;;;;;;;AAWM,IAAO,cAAP,MAAO,aAAW;;qCAAX,cAAW;EAAA;wEAAX,aAAW,CAAA;4EAHpB,YAAY,EAAA,CAAA;;;sEAGH,aAAW,CAAA;UANvB;WAAS;MACR,cAAc,CAAA;MACd,SAAS;QACP;;KAEH;;;",
+  "names": []
+}

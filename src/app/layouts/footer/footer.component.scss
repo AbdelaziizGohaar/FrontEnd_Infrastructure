@@ -1,0 +1,71 @@
+.footer {
+  background: linear-gradient(135deg, #3e2723 0%, #5d4037 100%);
+  color: white;
+  padding-bottom: 2rem;
+  
+  a {
+    color: white;
+    transition: color 0.2s ease, opacity 0.2s ease;
+    text-decoration: none;
+    
+    &:hover {
+      color: #f9cf85 !important;
+      opacity: 0.9;
+    }
+  }
+  
+  .footer-brand {
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  }
+  
+  .social-links {
+    a {
+      display: inline-block;
+      transition: transform 0.2s ease;
+      
+      &:hover {
+        transform: translateY(-2px);
+      }
+    }
+  }
+  
+  .newsletter {
+    .form-control {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+      color: white;
+      
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      
+      &:focus {
+        background-color: rgba(255, 255, 255, 0.15);
+        border-color: #4caf50;
+        box-shadow: 0 0 0 0.25rem rgba(76, 175, 80, 0.25);
+        color: white;
+      }
+    }
+    
+    .btn-success {
+      background-color: #4caf50;
+      border-color: #4caf50;
+      
+      &:hover {
+        background-color: #3d8b40;
+        border-color: #3d8b40;
+      }
+    }
+  }
+  
+  .payment-methods {
+    i {
+      opacity: 0.8;
+      transition: opacity 0.2s ease;
+      
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}

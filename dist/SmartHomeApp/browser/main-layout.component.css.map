@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/layouts/main-layout/main-layout.component.scss"],
+  "sourcesContent": [".main-layout {\n  display: flex;\n  flex-direction: column;\n  min-height: 100vh;\n}\n\n/* Basic spacing for main content */\nmain {\n  flex: 1 0 auto;\n}\n"],
+  "mappings": ";AAAA,CAAA;AACE,WAAA;AACA,kBAAA;AACA,cAAA;;AAIF;AACE,QAAA,EAAA,EAAA;;",
+  "names": []
+}

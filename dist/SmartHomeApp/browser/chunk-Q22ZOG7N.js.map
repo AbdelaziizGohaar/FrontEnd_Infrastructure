@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/modules/products/products-module.ts"],
+  "sourcesContent": ["import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n\n\n@NgModule({\n  declarations: [],\n  imports: [\n    CommonModule\n  ]\n})\nexport class ProductsModule { }\n"],
+  "mappings": ";;;;;;;;;AAWM,IAAO,iBAAP,MAAO,gBAAc;;qCAAd,iBAAc;EAAA;wEAAd,gBAAc,CAAA;4EAHvB,YAAY,EAAA,CAAA;;;sEAGH,gBAAc,CAAA;UAN1B;WAAS;MACR,cAAc,CAAA;MACd,SAAS;QACP;;KAEH;;;",
+  "names": []
+}

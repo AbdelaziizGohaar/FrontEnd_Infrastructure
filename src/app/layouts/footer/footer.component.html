@@ -1,0 +1,113 @@
+<footer class="footer bg-wood-darkest text-white mt-auto">
+  <div class="container pt-5">
+    <div class="row g-4">
+      <!-- Company Info -->
+      <div class="col-lg-4">
+        <div class="footer-brand mb-3">
+          <i class="bi bi-tree-fill text-success fs-3 me-2"></i>
+          <span class="fw-bold fs-4">Smart</span>
+          <span class="fw-light fs-4">Home</span>
+        </div>
+        <p class="text-light mb-4">
+          {{ 'footer.brandTagline' | translate }}
+        </p>
+        <div class="social-links">
+          <a href="#" class="text-white me-3" [attr.aria-label]="'footer.ariaFacebook' | translate">
+            <i class="bi bi-facebook fs-5"></i>
+          </a>
+          <a href="#" class="text-white me-3" [attr.aria-label]="'footer.ariaInstagram' | translate">
+            <i class="bi bi-instagram fs-5"></i>
+          </a>
+          <a href="#" class="text-white me-3" [attr.aria-label]="'footer.ariaPinterest' | translate">
+            <i class="bi bi-pinterest fs-5"></i>
+          </a>
+          <a href="#" class="text-white" [attr.aria-label]="'footer.ariaYouTube' | translate">
+            <i class="bi bi-youtube fs-5"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-lg-2 col-md-4">
+        <h5 class="mb-3">{{ 'footer.shop' | translate }}</h5>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a routerLink="/products" class="text-light text-decoration-none">{{ 'footer.allProducts' | translate }}</a></li>
+          <li class="mb-2"><a routerLink="/products/featured" class="text-light text-decoration-none">{{ 'footer.featured' | translate }}</a></li>
+          <li class="mb-2"><a routerLink="/products/sale" class="text-light text-decoration-none">{{ 'footer.onSale' | translate }}</a></li>
+          <li class="mb-2"><a routerLink="/products/new" class="text-light text-decoration-none">{{ 'footer.newArrivals' | translate }}</a></li>
+          <li><a routerLink="/products/best-sellers" class="text-light text-decoration-none">{{ 'footer.bestSellers' | translate }}</a></li>
+        </ul>
+      </div>
+
+      <!-- Information -->
+      <div class="col-lg-2 col-md-4">
+        <h5 class="mb-3">{{ 'footer.information' | translate }}</h5>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a routerLink="/about" class="text-light text-decoration-none">{{ 'footer.aboutUs' | translate }}</a></li>
+          <li class="mb-2"><a routerLink="/care-guide" class="text-light text-decoration-none">{{ 'footer.careGuide' | translate }}</a></li>
+          <li class="mb-2"><a routerLink="/sustainability" class="text-light text-decoration-none">{{ 'footer.sustainability' | translate }}</a></li>
+          <li class="mb-2"><a routerLink="/faq" class="text-light text-decoration-none">{{ 'footer.faq' | translate }}</a></li>
+          <li><a routerLink="/contact" class="text-light text-decoration-none">{{ 'footer.contactUs' | translate }}</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact & Newsletter -->
+      <div class="col-lg-4 col-md-4">
+        <h5 class="mb-3">{{ 'footer.contactInfo' | translate }}</h5>
+        <ul class="list-unstyled mb-4">
+          <li class="mb-3">
+            <i class="bi bi-geo-alt me-2"></i>
+            <span>{{ 'footer.address' | translate }}</span>
+          </li>
+          <li class="mb-3">
+            <i class="bi bi-telephone me-2"></i>
+            <a href="tel:+11234567890" class="text-light text-decoration-none">(02) 1001202005</a>
+          </li>
+          <li class="mb-3">
+            <i class="bi bi-envelope me-2"></i>
+            <a href="mailto:hello@smarthome.com" class="text-light text-decoration-none">hello&#64;smarthome.com</a>
+          </li>
+          <li>
+            <i class="bi bi-clock me-2"></i>
+            <span>{{ 'footer.hours' | translate }}</span>
+          </li>
+        </ul>
+
+        <!-- Newsletter -->
+        <div class="newsletter">
+          <h6 class="mb-2">{{ 'footer.newsletterTitle' | translate }}</h6>
+          <p class="text-light small mb-3">{{ 'footer.newsletterDesc' | translate }}</p>
+          <div class="input-group">
+            <input type="email" class="form-control"
+                   [placeholder]="'footer.emailPlaceholder' | translate"
+                   [(ngModel)]="newsletterEmail"
+                   (keyup.enter)="subscribeNewsletter()">
+            <button class="btn btn-success" type="button" (click)="subscribeNewsletter()">
+              <i class="bi bi-envelope-check"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="border-light my-4">
+
+    <!-- Bottom Bar -->
+    <div class="row align-items-center">
+      <div class="col-md-6 mb-3 mb-md-0">
+        <p class="mb-0 text-light small">
+          © {{ currentYear }} {{ 'footer.siteName' | translate }}. {{ 'footer.allRightsReserved' | translate }}
+        </p>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <div class="payment-methods">
+          <i class="bi bi-credit-card-2-front fs-4 me-2" [attr.title]="'footer.titleVisa' | translate"></i>
+          <i class="bi bi-credit-card fs-4 me-2" [attr.title]="'footer.titleMasterCard' | translate"></i>
+          <i class="bi bi-paypal fs-4 me-2" [attr.title]="'footer.titlePayPal' | translate"></i>
+          <i class="bi bi-google fs-4 me-2" [attr.title]="'footer.titleGooglePay' | translate"></i>
+          <i class="bi bi-apple fs-4" [attr.title]="'footer.titleApplePay' | translate"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
