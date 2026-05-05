@@ -4,7 +4,7 @@ import { RouterModule, Router } from '@angular/router';
 import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { TranslatePipe } from '../../shared/pipes/translate.pipe';
 import { LanguageService } from '../../core/services/language.service';
-import { AuthService, ApiResponse, User } from '../../core/services/auth.service';
+import { AuthService, ApiResponse, User ,AuthResponse } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -27,8 +27,7 @@ export class RegisterComponent {
     public lang: LanguageService
   ) {
     this.registerForm = this.fb.group({
-      firstName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
-      lastName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
+      name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', [Validators.pattern('^[0-9]{10,15}$')]],
       password: ['', [
@@ -108,27 +107,16 @@ export class RegisterComponent {
     const formData = {
       email: this.registerForm.get('email')?.value,
       password: this.registerForm.get('password')?.value,
-      first_name: this.registerForm.get('firstName')?.value,
-      last_name: this.registerForm.get('lastName')?.value,
+      name: this.registerForm.get('name')?.value,
       phone: this.registerForm.get('phone')?.value
     };
 
     this.authService.register(formData).subscribe({
-      next: (response: ApiResponse<User>) => {
+      next: (response: ApiResponse<AuthResponse>) => {
         this.isLoading.set(false);
         if (response.success) {
-          // Auto login after registration
-          this.authService.login(formData.email, formData.password).subscribe({
-            next: (loginResp: ApiResponse<User>) => {
-              this.router.navigate(['/']);
-            },
-            error: (err: any) => {
-              // If auto-login fails, redirect to login page
-              this.router.navigate(['/auth/login'], { 
-                queryParams: { registered: 'success' } 
-              });
-            }
-          });
+          // Registration returned token and user; user is already stored by the service
+          this.router.navigate(['/']);
         }
       },
       error: (error: any) => {

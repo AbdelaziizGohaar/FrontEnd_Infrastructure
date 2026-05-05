@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
   isAdmin = signal(false);
   cartItemsCount = signal(0);
   wishlistCount = signal(3);
+  notificationsCount = signal(0);
 
   searchQuery = '';
   mobileMenuOpen = false;
@@ -85,5 +86,9 @@ export class HeaderComponent implements OnInit {
     this.desktopSearchOpen = false;
     this.mobileSearchOpen = false;
     this.searchQuery = '';
+  }
+
+  notificationCount(): number {
+    return this.notificationsCount();
   }
 }

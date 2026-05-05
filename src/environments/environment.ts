@@ -1,7 +1,7 @@
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:3000/api',
-  appName: 'SmartHome Wooden Utensils',
+  apiUrl: 'http://localhost:3000/ACC-service',
+  appName: 'ACC Wooden Utensils',
   features: {
     enableReviews: true,
     enableWishlist: true,
@@ -13,8 +13,8 @@ export const environment = {
     paypalClientId: 'your_paypal_client_id'
   },
   social: {
-    facebook: 'https://facebook.com/smarthome',
-    instagram: 'https://instagram.com/smarthome',
-    pinterest: 'https://pinterest.com/smarthome'
+    facebook: 'https://facebook.com/acc',
+    instagram: 'https://instagram.com/acc',
+    pinterest: 'https://pinterest.com/acc'
   }
 };

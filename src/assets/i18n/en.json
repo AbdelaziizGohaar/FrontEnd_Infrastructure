@@ -80,7 +80,7 @@
     "newsletterTitle": "Join Our Newsletter",
     "newsletterDesc": "Get updates on new products and exclusive offers.",
     "emailPlaceholder": "Your email",
-    "siteName": "SmartHome Wooden Utensils",
+    "siteName": "ACC Wooden Utensils",
     "allRightsReserved": "All rights reserved.",
     "ariaFacebook": "Facebook",
     "ariaInstagram": "Instagram",
@@ -181,11 +181,9 @@
   },
     "register": {
     "title": "Create Account",
-    "subtitle": "Join SmartHome family and enjoy exclusive benefits",
-    "firstName": "First Name",
-    "firstNamePlaceholder": "Enter your first name",
-    "lastName": "Last Name",
-    "lastNamePlaceholder": "Enter your last name",
+    "subtitle": "Join ACC family and enjoy exclusive benefits",
+    "name": "Name",
+    "namePlaceholder": "Enter your name",
     "email": "Email Address",
     "emailPlaceholder": "your@email.com",
     "phone": "Phone Number (Optional)",
@@ -204,5 +202,19 @@
     "weak": "Weak",
     "medium": "Medium",
     "strong": "Strong"
+  },
+  "login": {
+    "title": "Welcome Back",
+    "subtitle": "Sign in to your account",
+    "email": "Email Address",
+    "emailPlaceholder": "your@email.com",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot password?",
+    "signIn": "Sign In",
+    "noAccount": "Don't have an account?",
+    "createAccount": "Create Account",
+    "or": "Or continue with"
   }
 }

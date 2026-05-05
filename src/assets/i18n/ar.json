@@ -80,7 +80,7 @@
     "newsletterTitle": "انضم إلى نشرتنا البريدية",
     "newsletterDesc": "احصل على تحديثات حول المنتجات الجديدة والعروض الحصرية.",
     "emailPlaceholder": "بريدك الإلكتروني",
-    "siteName": "SmartHome للأدوات الخشبية",
+    "siteName": "ACC للأدوات الخشبية",
     "allRightsReserved": "جميع الحقوق محفوظة.",
     "ariaFacebook": "فيسبوك",
     "ariaInstagram": "إنستغرام",
@@ -181,11 +181,9 @@
   },
     "register": {
     "title": "إنشاء حساب",
-    "subtitle": "انضم إلى عائلة SmartHome واستمتع بالمزايا الحصرية",
-    "firstName": "الاسم الأول",
-    "firstNamePlaceholder": "أدخل اسمك الأول",
-    "lastName": "اسم العائلة",
-    "lastNamePlaceholder": "أدخل اسم العائلة",
+    "subtitle": "انضم إلى عائلة ACC واستمتع بالمزايا الحصرية",
+    "name": "الاسم",
+    "namePlaceholder": "أدخل اسمك",
     "email": "البريد الإلكتروني",
     "emailPlaceholder": "بريدك@example.com",
     "phone": "رقم الهاتف (اختياري)",
@@ -204,5 +202,19 @@
     "weak": "ضعيفة",
     "medium": "متوسطة",
     "strong": "قوية"
+  },
+  "login": {
+    "title": "مرحباً بعودتك",
+    "subtitle": "تسجيل الدخول إلى حسابك",
+    "email": "البريد الإلكتروني",
+    "emailPlaceholder": "بريدك@example.com",
+    "password": "كلمة المرور",
+    "passwordPlaceholder": "أدخل كلمة المرور",
+    "rememberMe": "تذكرني",
+    "forgotPassword": "نسيت كلمة المرور؟",
+    "signIn": "تسجيل الدخول",
+    "noAccount": "ليس لديك حساب؟",
+    "createAccount": "إنشاء حساب",
+    "or": "أو تابع باستخدام"
   }
 }

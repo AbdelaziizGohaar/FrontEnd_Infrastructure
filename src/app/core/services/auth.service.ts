@@ -1,15 +1,22 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable, of } from 'rxjs';
-import { delay, tap } from 'rxjs/operators';
+import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
+import { tap, delay, catchError } from 'rxjs/operators';
+import { environment } from '../../../environments/environment';
 
 export interface User {
   id: number;
   email: string;
-  first_name: string;
-  last_name: string;
+  name: string;
   phone?: string;
   role: 'customer' | 'admin';
+  token?: string;
+}
+
+export interface AuthResponse {
+  user: User;
+  token: string;
 }
 
 export interface ApiResponse<T> {
@@ -26,89 +33,107 @@ export class AuthService {
   private currentUserSubject = new BehaviorSubject<User | null>(null);
   public currentUser$ = this.currentUserSubject.asObservable();
 
-  constructor(private router: Router) {
-    // Check localStorage for saved user
+  constructor(
+    private http: HttpClient,
+    private router: Router
+  ) {
+    this.loadStoredUser();
+  }
+
+  private loadStoredUser(): void {
     const savedUser = localStorage.getItem('user');
-    if (savedUser) {
-      this.currentUserSubject.next(JSON.parse(savedUser));
+    const token = localStorage.getItem('token');
+    if (savedUser && token) {
+      const user = JSON.parse(savedUser);
+      user.token = token;
+      this.currentUserSubject.next(user);
     }
   }
 
   /**
    * Login user
    */
-  login(email: string, password: string): Observable<ApiResponse<User>> {
-    // Mock login - replace with actual API call
-    return of<ApiResponse<User>>({
-      success: true,
-      message: 'Login successful',
-      data: {
-        id: 1,
-        email: email,
-        first_name: 'John',
-        last_name: 'Doe',
-        phone: '01001202005',
-        role: 'customer' as 'customer'
-      }
+  login(email: string, password: string): Observable<ApiResponse<AuthResponse>> {
+    return this.http.post<ApiResponse<AuthResponse>>(`${environment.apiUrl}/auth/login`, {
+      email,
+      password
     }).pipe(
-      delay(1000), // Simulate network delay
       tap(response => {
-        if (response.success) {
-          localStorage.setItem('user', JSON.stringify(response.data));
-          this.currentUserSubject.next(response.data);
+        if (response.success && response.data) {
+          this.handleAuthResponse(response.data);
         }
-      })
+      }),
+      catchError(this.handleError)
     );
   }
 
   /**
-   * Register new user
+   * Register new user - Real backend call
    */
   register(userData: {
     email: string;
     password: string;
-    first_name: string;
-    last_name: string;
+    name: string;
     phone?: string;
-  }): Observable<ApiResponse<User>> {
-    // Mock registration - replace with actual API call
-    return of<ApiResponse<User>>({
-      success: true,
-      message: 'Registration successful',
-      data: {
-        id: Math.floor(Math.random() * 1000),
-        email: userData.email,
-        first_name: userData.first_name,
-        last_name: userData.last_name,
-        phone: userData.phone || '',
-        role: 'customer' as 'customer'
-      }
-    }).pipe(
-      delay(1000), // Simulate network delay
+  }): Observable<ApiResponse<AuthResponse>> {
+    return this.http.post<ApiResponse<AuthResponse>>(`${environment.apiUrl}/auth/register`, userData).pipe(
       tap(response => {
-        if (response.success) {
-          // Optionally auto-login after registration
-          // You can either auto-login or just return success
-          console.log('User registered:', response.data);
+        if (response.success && response.data) {
+          this.handleAuthResponse(response.data);
         }
-      })
+      }),
+      catchError(this.handleError)
     );
+  }
+
+  /**
+   * Handle successful authentication response
+   */
+  private handleAuthResponse(authData: AuthResponse): void {
+    // Store token and user data
+    console.log('Authentication successful:', authData);
+    localStorage.setItem('token', authData.token);
+    // localStorage.setItem('user', JSON.stringify(authData.user));
+    this.currentUserSubject.next(authData.user);
+  }
+
+  /**
+   * Handle HTTP errors
+   */
+  private handleError(error: HttpErrorResponse): Observable<never> {
+    let errorMessage = 'An error occurred';
+    
+    if (error.error instanceof ErrorEvent) {
+      // Client-side error
+      errorMessage = error.error.message;
+    } else {
+      // Server-side error
+      errorMessage = error.error?.message || error.message || `Server error: ${error.status}`;
+    }
+    
+    console.error('Auth error:', errorMessage);
+    return throwError(() => ({ 
+      success: false, 
+      message: errorMessage,
+      status: error.status 
+    }));
   }
 
   /**
    * Logout user
    */
   logout(): void {
-    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+    // localStorage.removeItem('user');
     this.currentUserSubject.next(null);
-    this.router.navigate(['/']);
+    this.router.navigate(['/auth/login']);
   }
 
   /**
    * Check if user is authenticated
    */
   isAuthenticated(): boolean {
-    return !!this.currentUserSubject.value;
+    return !!this.currentUserSubject.value && !!localStorage.getItem('token');
   }
 
   /**
@@ -126,44 +151,9 @@ export class AuthService {
   }
 
   /**
-   * Update user profile
+   * Get auth token
    */
-  updateProfile(userData: Partial<User>): Observable<ApiResponse<User>> {
-    const currentUser = this.currentUserSubject.value;
-    if (!currentUser) {
-      return of({
-        success: false,
-        message: 'User not found',
-        data: null as any
-      });
-    }
-
-    const updatedUser = { ...currentUser, ...userData };
-    
-    return of({
-      success: true,
-      message: 'Profile updated successfully',
-      data: updatedUser
-    }).pipe(
-      delay(500),
-      tap(response => {
-        if (response.success) {
-          localStorage.setItem('user', JSON.stringify(response.data));
-          this.currentUserSubject.next(response.data);
-        }
-      })
-    );
-  }
-
-  /**
-   * Change password
-   */
-  changePassword(currentPassword: string, newPassword: string): Observable<ApiResponse<null>> {
-    // Mock password change - replace with actual API call
-    return of({
-      success: true,
-      message: 'Password changed successfully',
-      data: null
-    }).pipe(delay(800));
+  getToken(): string | null {
+    return localStorage.getItem('token');
   }
 }

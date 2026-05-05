@@ -1,4 +1,4 @@
-.register-page {
+.login-page {
   min-height: 100vh;
   background: linear-gradient(135deg, #faf8f5 0%, #f0ebe5 100%);
   display: flex;
@@ -7,13 +7,13 @@
   padding: 2rem;
 }
 
-.register-container {
+.login-container {
   width: 100%;
-  max-width: 580px;
+  max-width: 480px;
   margin: 0 auto;
 }
 
-.register-card {
+.login-card {
   background: white;
   border-radius: 24px;
   padding: 2.5rem;
@@ -21,12 +21,12 @@
   animation: slideUp 0.5s ease;
 }
 
-.register-header {
+.login-header {
   text-align: center;
   margin-bottom: 2rem;
 }
 
-.register-icon {
+.login-icon {
   width: 80px;
   height: 80px;
   margin: 0 auto 1rem;
@@ -38,33 +38,25 @@
   color: white;
 }
 
-.register-title {
+.login-title {
   font-size: 1.75rem;
   font-weight: 600;
   color: #2c241a;
   margin-bottom: 0.5rem;
 }
 
-.register-subtitle {
+.login-subtitle {
   color: #6b5b4f;
   font-size: 0.875rem;
 }
 
-.register-form {
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    margin-bottom: 0;
-
-    @media (max-width: 480px) {
-      grid-template-columns: 1fr;
-      gap: 0;
-    }
+.login-form {
+  .form-group {
+    margin-bottom: 1.5rem;
   }
 
-  .form-group {
-    margin-bottom: 1.25rem;
+  .form-group-checkbox {
+    margin-bottom: 1.5rem;
   }
 }
 
@@ -120,68 +112,29 @@
     align-items: center;
     transition: color 0.2s;
 
-    &:hover {
-      color: #8b6b4a;
-    }
-    
     svg {
       pointer-events: auto;
     }
+
+    &:hover {
+      color: #8b6b4a;
+    }
   }
 }
 
-.password-strength {
+.forgot-password {
+  text-align: right;
   margin-top: 0.5rem;
-  
-  .strength-bar {
-    height: 4px;
-    border-radius: 2px;
-    background: #e0d6cc;
-    overflow: hidden;
-    margin-bottom: 0.25rem;
-    position: relative;
 
-    &::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      height: 100%;
-      width: 0;
-      transition: width 0.3s ease;
-    }
+  a {
+    font-size: 0.75rem;
+    color: #8b6b4a;
+    text-decoration: none;
 
-    &.weak::before {
-      width: 33%;
-      background: #e74c3c;
-    }
-
-    &.medium::before {
-      width: 66%;
-      background: #f39c12;
-    }
-
-    &.strong::before {
-      width: 100%;
-      background: #27ae60;
+    &:hover {
+      text-decoration: underline;
     }
   }
-
-  .strength-label {
-    font-size: 0.7rem;
-    color: #b0a088;
-  }
-}
-
-.error-message {
-  display: block;
-  font-size: 0.75rem;
-  color: #e74c3c;
-  margin-top: 0.25rem;
-}
-
-.terms-group {
-  margin-bottom: 1.5rem;
 }
 
 .checkbox-label {
@@ -233,8 +186,8 @@
     }
   }
 
-  .terms-text {
-    font-size: 0.75rem;
+  .checkbox-text {
+    font-size: 0.875rem;
     color: #6b5b4f;
   }
 }
@@ -275,7 +228,7 @@
   }
 }
 
-.login-link {
+.register-link {
   text-align: center;
   margin-top: 1.5rem;
   font-size: 0.875rem;
@@ -407,6 +360,10 @@
     }
   }
 
+  .forgot-password {
+    text-align: left;
+  }
+
   .checkbox-label {
     padding-left: 0;
     padding-right: 28px;
@@ -417,7 +374,7 @@
     }
   }
 
-  .login-link a {
+  .register-link a {
     margin-left: 0;
     margin-right: 0.5rem;
   }
@@ -425,7 +382,7 @@
 
 // Responsive
 @media (max-width: 640px) {
-  .register-card {
+  .login-card {
     padding: 1.5rem;
   }
 
